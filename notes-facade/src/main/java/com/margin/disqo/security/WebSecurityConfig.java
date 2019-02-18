@@ -1,21 +1,20 @@
 package com.margin.disqo.security;
 
 import com.margin.disqo.BeanMapper;
+import com.margin.disqo.auth.AuthenticationFacade;
 import com.margin.disqo.security.jwt.JWTAuthorizationFilter;
 import com.margin.disqo.security.jwt.JwtAuthenticationFilter;
-import com.margin.disqo.auth.AuthenticationFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import javax.ws.rs.HttpMethod;
 
 
 @Configuration
@@ -49,8 +48,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout().addLogoutHandler(new ApiLogoutHandler(authenticationFacade))
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/info").permitAll()
-//                .antMatchers(HttpMethod.POST, "/logout").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationFacade, beanMapper))
@@ -62,4 +59,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/api/v1/info");
+    }
 }
