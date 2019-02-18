@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 @Setter
 public class ApiUserDetail extends AbstractEntity{
 
+    @Email
     @Column(name = "username", nullable = false)
     private String username;
 

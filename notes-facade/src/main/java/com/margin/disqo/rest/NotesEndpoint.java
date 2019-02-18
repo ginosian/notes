@@ -21,7 +21,6 @@ public interface NotesEndpoint {
     @GetMapping(path = "")
     ResponseEntity<ListResponseDTO<NoteDTO>> getAll(
             @PathParam("userId") Long userId,
-            @PathParam("noteId") Long noteId,
             @PathVariable("page") int page,
             @PathVariable("size") int size);
 
@@ -32,6 +31,6 @@ public interface NotesEndpoint {
     ResponseEntity<NoteDTO> partialUpdate(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId, @RequestBody NoteUpdateDTO noteUpdateDTO);
 
     @DeleteMapping(path = "/{noteId}")
-    ResponseEntity<NoteDTO> delete(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId);
+    ResponseEntity<Boolean> delete(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId);
 
 }
