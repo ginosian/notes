@@ -2,6 +2,9 @@ package com.margin.disqo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,9 +28,6 @@ public class ApiUserDetail extends AbstractEntity  implements UserDetails {
 
     @Column(name = "enabled")
     private Boolean enabled;
-
-    @Column(name = "approved", nullable = false)
-    private Boolean approved;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -64,5 +64,41 @@ public class ApiUserDetail extends AbstractEntity  implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+
+        if (!(o instanceof ApiUserDetail)) return false;
+
+        final ApiUserDetail that = (ApiUserDetail) o;
+
+        return new EqualsBuilder()
+                .append(getId(), that.getId())
+                .append(username, that.username)
+                .append(password, that.password)
+                .append(enabled, that.enabled)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(getId())
+                .append(username)
+                .append(password)
+                .append(enabled)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("id", getId())
+                .append("username", username)
+                .append("password", password)
+                .append("enabled", enabled)
+                .toString();
     }
 }
