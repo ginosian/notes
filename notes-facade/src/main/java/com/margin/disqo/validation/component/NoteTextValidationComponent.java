@@ -11,6 +11,6 @@ public class NoteTextValidationComponent {
     private TextLengthValidationComponent textLengthValidationComponent;
 
     public void validate(final String noteText){
-
+        textLengthValidationComponent.validate(noteText, 1000);
     }
 }

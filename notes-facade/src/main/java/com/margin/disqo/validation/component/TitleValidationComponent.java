@@ -11,7 +11,7 @@ public class TitleValidationComponent {
     @Autowired
     private TextLengthValidationComponent textLengthValidationComponent;
 
-    public void validate(final String noteText){
-
+    public void validate(final String titleText){
+        textLengthValidationComponent.validate(titleText, 50);
     }
 }
