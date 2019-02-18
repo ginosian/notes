@@ -50,7 +50,7 @@
         <!--region MARGIN-DISQO-->
         <dependency>
             <groupId>com.margin.disqo</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>notes-common</artifactId>
             <version>${notes.common.version}</version>
         </dependency>
         <!-- endregion -->

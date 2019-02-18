@@ -12,14 +12,6 @@
     <artifactId>notes-core</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-        <!--region MARGIN-DISQO-->
-        <dependency>
-            <groupId>com.margin.disqo</groupId>
-            <artifactId>notes-common</artifactId>
-            <version>${notes.common.version}</version>
-        </dependency>
-        <!-- endregion -->
-
         <!--region SPRING-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
