@@ -1,4 +1,4 @@
-package com.margin.disqo.auth;
+package com.margin.disqo.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

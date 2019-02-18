@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static org.springframework.util.Assert.notNull;
+import static org.springframework.util.Assert.hasText;
 
 @Service
 public class ValidationServiceImpl implements ValidationService {
@@ -23,7 +23,7 @@ public class ValidationServiceImpl implements ValidationService {
     public void validate(NoteDeclaration note) {
         final String text = note.getNoteText();
         final String title = note.getNoteTitle();
-        notNull(title, "Title can not be null");
+        hasText(title, "Title can not be null or empty");
         if(StringUtils.isNotEmpty(text)){
             noteTextValidationComponent.validate(text);
         }
