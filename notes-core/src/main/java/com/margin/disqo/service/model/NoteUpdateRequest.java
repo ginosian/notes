@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class NoteUpdateRequest {
     private Long noteId;
+    private Long userId;
     private String title;
     private String note;
 }

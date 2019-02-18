@@ -9,9 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteCreationRequest {
+public class NoteDeleteRequest {
     private Long noteId;
     private Long userId;
-    private String title;
-    private String note;
 }

@@ -1,4 +1,7 @@
 package com.margin.disqo.repository;
 
-public interface UserRepository {
+import com.margin.disqo.entity.ApiUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<ApiUser, Long> {
 }

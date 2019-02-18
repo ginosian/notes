@@ -10,7 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteModel {
-    private Long id;
+    private Long noteId;
+    private Long userId;
     private String title;
     private String note;
 }
