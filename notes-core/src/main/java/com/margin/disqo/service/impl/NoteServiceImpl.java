@@ -8,9 +8,12 @@ import com.margin.disqo.service.component.NoteConverter;
 import com.margin.disqo.service.model.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.springframework.util.Assert.notNull;
 
@@ -43,8 +46,10 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public List<NoteModel> getAll(final PagingMetaData pagingMetaData) {
         notNull(pagingMetaData, "Paging metadata can not be null.");
-        //TODO Validate content and User Id.
-        return null;
+        final PageRequest page = new PageRequest(pagingMetaData.getPage(), pagingMetaData.getSize());
+        final Page<Note> noteList = noteRepository.findAll(page);
+        final List<NoteModel> notes = noteList.stream().map(note -> noteConverter.convert(note)).collect(Collectors.toList());
+        return notes;
     }
 
     @Override
