@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 public class TextLengthValidationComponent {
 
     public void validate(final String text, int length){
-        if(text.length() < length){
-            throw new ApiException("Invalid text length", 400);
+        if(text.length() > length){
+            throw new ApiException(String.format("Invalid text length:'%s'", length), 400);
         }
     }
 }

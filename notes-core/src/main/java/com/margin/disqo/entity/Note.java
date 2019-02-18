@@ -10,13 +10,13 @@ import javax.persistence.*;
 @Setter
 public class Note extends AbstractEntity{
 
-    @Column
+    @Column(length = 50)
     private String title;
 
-    @Column
+    @Column(length = 1000)
     private String note;
 
-//    @OneToOne
-//    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "user_note_fk"))
-//    private ApiUser user;
+    @OneToOne
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "user_note_fk"))
+    private ApiUser user;
 }
