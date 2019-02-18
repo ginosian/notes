@@ -1,6 +1,9 @@
 package com.margin.disqo.rest;
 
 import com.margin.disqo.dto.*;
+import com.margin.disqo.dto.note.NoteCreationDTO;
+import com.margin.disqo.dto.note.NoteDTO;
+import com.margin.disqo.dto.note.NoteUpdateDTO;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.ws.rs.*;

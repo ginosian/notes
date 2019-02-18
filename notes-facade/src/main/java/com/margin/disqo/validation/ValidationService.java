@@ -1,6 +1,6 @@
 package com.margin.disqo.validation;
 
-import com.margin.disqo.dto.NoteDeclaration;
+import com.margin.disqo.dto.note.NoteDeclaration;
 
 public interface ValidationService {
 

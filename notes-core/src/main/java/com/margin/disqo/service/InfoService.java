@@ -1,6 +1,6 @@
 package com.margin.disqo.service;
 
-import com.margin.disqo.dto.InfoDTO;
+import com.margin.disqo.dto.info.InfoDTO;
 
 public interface InfoService {
 

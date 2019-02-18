@@ -1,4 +1,4 @@
-package com.margin.disqo.dto;
+package com.margin.disqo.dto.info;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

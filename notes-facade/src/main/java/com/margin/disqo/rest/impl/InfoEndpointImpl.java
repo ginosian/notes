@@ -1,6 +1,6 @@
 package com.margin.disqo.rest.impl;
 
-import com.margin.disqo.dto.InfoDTO;
+import com.margin.disqo.dto.info.InfoDTO;
 import com.margin.disqo.rest.InfoEndpoint;
 import com.margin.disqo.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;

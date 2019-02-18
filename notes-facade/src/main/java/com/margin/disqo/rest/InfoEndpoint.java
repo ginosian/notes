@@ -1,6 +1,6 @@
 package com.margin.disqo.rest;
 
-import com.margin.disqo.dto.InfoDTO;
+import com.margin.disqo.dto.info.InfoDTO;
 import org.springframework.http.ResponseEntity;
 
 import javax.ws.rs.Consumes;

@@ -1,4 +1,4 @@
-package com.margin.disqo.dto;
+package com.margin.disqo.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

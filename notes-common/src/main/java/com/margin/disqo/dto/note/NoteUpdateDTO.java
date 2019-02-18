@@ -1,4 +1,5 @@
-package com.margin.disqo.dto;
+package com.margin.disqo.dto.note;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteCreationDTO implements NoteDeclaration{
+public class NoteUpdateDTO implements NoteDeclaration{
     private String title;
     private String note;
 

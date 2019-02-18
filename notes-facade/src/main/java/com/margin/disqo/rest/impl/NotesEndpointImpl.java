@@ -2,6 +2,9 @@ package com.margin.disqo.rest.impl;
 
 import com.margin.disqo.BeanMapper;
 import com.margin.disqo.dto.*;
+import com.margin.disqo.dto.note.NoteCreationDTO;
+import com.margin.disqo.dto.note.NoteDTO;
+import com.margin.disqo.dto.note.NoteUpdateDTO;
 import com.margin.disqo.rest.ExceptionHelper;
 import com.margin.disqo.rest.NotesEndpoint;
 import com.margin.disqo.service.NoteService;

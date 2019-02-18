@@ -5,7 +5,7 @@ import com.margin.disqo.BeanMapper;
 import com.margin.disqo.auth.AuthenticationFacade;
 import com.margin.disqo.auth.model.AuthenticationRequest;
 import com.margin.disqo.auth.model.AuthenticationResponse;
-import com.margin.disqo.dto.AuthRequestDTO;
+import com.margin.disqo.dto.auth.AuthRequestDTO;
 import com.margin.disqo.entity.ApiUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;

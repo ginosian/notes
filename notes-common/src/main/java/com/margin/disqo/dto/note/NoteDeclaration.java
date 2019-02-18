@@ -1,4 +1,4 @@
-package com.margin.disqo.dto;
+package com.margin.disqo.dto.note;
 
 public interface NoteDeclaration {
     String getNoteTitle();

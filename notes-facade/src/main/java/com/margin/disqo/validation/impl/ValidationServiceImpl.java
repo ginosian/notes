@@ -1,6 +1,6 @@
 package com.margin.disqo.validation.impl;
 
-import com.margin.disqo.dto.NoteDeclaration;
+import com.margin.disqo.dto.note.NoteDeclaration;
 import com.margin.disqo.validation.ValidationService;
 import com.margin.disqo.validation.component.NoteTextValidationComponent;
 import com.margin.disqo.validation.component.TitleValidationComponent;
