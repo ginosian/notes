@@ -25,7 +25,7 @@ public class AuthValidationStrategy {
         notNull(userDetail, "userDetail can not be null");
         final Long userId = userDetail.getUser().getId();
         final String username = userDetail.getUsername();
-        final String plainPassword = userDetail.getPasswordHash();
+        final String plainPassword = userDetail.getPassword();
         notNull(userId, "userDetail.userId can not be null or empty.");
         hasText(username, "userDetail.username can not be null or empty.");
         hasText(plainPassword, "userDetail.plainPassword can not be null or empty.");
@@ -41,7 +41,7 @@ public class AuthValidationStrategy {
     public void validate(final AuthenticationRequest request){
         Assert.notNull(request, "authenticationRequest.request cannot be null.");
         Assert.notNull(request.getUsername(), "authenticationRequest.request.username cannot be null.");
-        Assert.notNull(request.getPlainPassword(), "authenticationRequest.request.plainPassword cannot be null.");
+        Assert.notNull(request.getPassword(), "authenticationRequest.request.plainPassword cannot be null.");
     }
 
     public void validateForRefreshing(final ApiAuthAccessToken token){

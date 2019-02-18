@@ -13,14 +13,14 @@ public class StaticData {
 
     public static List<Role> createRoles() {
         final Role roleOwner = new Role();
-        roleOwner.setType(RoleType.OWNER);
+        roleOwner.setType(RoleType.ROLE_OWNER);
         return Lists.newArrayList(roleOwner);
     }
 
     public static ApiUserDetail userDetails(final Set<Role> roles, final ApiUser user, final String email){
         final ApiUserDetail apiUserDetail = new ApiUserDetail();
         apiUserDetail.setUsername(email);
-        apiUserDetail.setPasswordHash("password");
+        apiUserDetail.setPassword("password");
         apiUserDetail.setRoles(roles);
         apiUserDetail.setUser(user);
         apiUserDetail.setApproved(true);

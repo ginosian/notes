@@ -10,7 +10,7 @@ public interface ApiAuthAccessTokenService {
 
     Optional<ApiAuthAccessToken> findByToken(String token);
 
-    Optional<ApiAuthAccessToken> findByUserDetailId(String userDetailId);
+    Optional<ApiAuthAccessToken> findByUserDetailId(Long userDetailId);
 
     ApiAuthAccessToken createApiAccessToken(ApiAuthAccessTokenCreationRequest request);
 

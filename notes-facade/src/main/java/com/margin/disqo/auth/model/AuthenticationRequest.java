@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthenticationRequest{
     private String username;
-    private String plainPassword;
+    private String password;
     private boolean rememberMe;
 }

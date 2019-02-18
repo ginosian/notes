@@ -1,11 +1,9 @@
-package com.margin.disqo.security.jwt;
+package com.margin.disqo.service.component;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.TextCodec;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -23,8 +21,6 @@ import static org.springframework.util.Assert.*;
 @Component
 @PropertySource("classpath:application-security.properties")
 public class JwtTokenComponent {
-
-    private final static Logger logger = LoggerFactory.getLogger(JwtTokenComponent.class);
 
     private final SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 

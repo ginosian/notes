@@ -2,10 +2,14 @@ package com.margin.disqo.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.margin.disqo.BeanMapper;
-import com.margin.disqo.dto.AuthRequestDTO;
 import com.margin.disqo.auth.AuthenticationFacade;
+import com.margin.disqo.auth.model.AuthenticationRequest;
+import com.margin.disqo.auth.model.AuthenticationResponse;
+import com.margin.disqo.dto.AuthRequestDTO;
+import com.margin.disqo.entity.ApiUserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -33,10 +37,12 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
     public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException {
         try {
             final AuthRequestDTO credentials = new ObjectMapper().readValue(req.getInputStream(), AuthRequestDTO.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            final AuthenticationRequest authenticationRequest = beanMapper.map(credentials, AuthenticationRequest.class);
+            final AuthenticationResponse authenticationResponse = authenticationFacade.authenticateByCredentials(authenticationRequest);
+            final ApiUserDetail userDetail = authenticationResponse.getApiUserDetail();
+            return new UsernamePasswordAuthenticationToken(userDetail, authenticationResponse.getToken(), userDetail.getAuthorities());
         } catch (Exception e) {
-            return null;
+            res.setStatus(401);
         }
         return null;
     }
@@ -54,5 +60,4 @@ public class JwtAuthenticationFilter  extends UsernamePasswordAuthenticationFilt
     public void setAuthenticationManager(AuthenticationManager authenticationManager) {
         super.setAuthenticationManager(authenticationManager);
     }
-
 }

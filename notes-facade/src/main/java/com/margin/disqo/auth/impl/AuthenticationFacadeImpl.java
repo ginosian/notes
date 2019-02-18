@@ -12,7 +12,6 @@ import com.margin.disqo.service.ApiAuthAccessTokenService;
 import com.margin.disqo.service.ApiUserDetailService;
 import com.margin.disqo.service.model.ApiAuthAccessTokenRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +31,10 @@ public class AuthenticationFacadeImpl implements AuthenticationFacade {
     @Autowired
     private AuthValidationStrategy authValidationStrategy;
 
-    @Value("#{'${authenticationService.masterApiUserDetail.passwordHash}' ?: null}")
-    private String masterApiUserDetailPasswordHash;
+    private String masterApiUserDetailPasswordHash = "$2a$12$uXrM5VQLRxpFF8iqOoUPIe4TC14IVa5k8oWNWqC/kzPDXSS.ssN82";
 
     @Override
-    public AuthenticationResponse authenticateByCredentials(final AuthenticationRequest request) throws AuthException {
+    public AuthenticationResponse authenticateByCredentials(final AuthenticationRequest request) {
         authValidationStrategy.validate(request);
         final ApiUserDetail userDetail = apiUserDetailService.loadUserByUsername(request.getUsername());
         authValidationStrategy.validate(userDetail);
@@ -59,7 +57,7 @@ public class AuthenticationFacadeImpl implements AuthenticationFacade {
     }
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthException {
+    public Authentication authenticate(Authentication authentication) {
         return new APIAuthenticationResponse(authenticateByCredentials((AuthenticationRequest) authentication.getDetails()));
     }
 

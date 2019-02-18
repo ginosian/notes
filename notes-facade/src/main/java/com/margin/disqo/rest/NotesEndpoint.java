@@ -1,6 +1,7 @@
 package com.margin.disqo.rest;
 
 import com.margin.disqo.dto.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,6 +13,7 @@ public interface NotesEndpoint {
 
     @POST
     @Path("")
+    @PreAuthorize("hasRole('OWNER')")
     ResponseDTO<NoteDTO> create(@PathParam("userId") Long userId, NoteCreationDTO noteCreationDTO);
 
     @GET
@@ -20,6 +22,7 @@ public interface NotesEndpoint {
 
     @GET
     @Path("")
+    @PreAuthorize("hasRole('OWNER')")
     ListResponseDTO<NoteDTO> getAll(
             @PathParam("userId") Long userId,
             @QueryParam("page") int page,
@@ -27,14 +30,17 @@ public interface NotesEndpoint {
 
     @PUT
     @Path("/{noteId}")
+    @PreAuthorize("hasRole('OWNER')")
     ResponseDTO<NoteDTO> update(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId, NoteUpdateDTO noteUpdateDTO);
 
     @PATCH
     @Path("/{noteId}")
+    @PreAuthorize("hasRole('OWNER')")
     ResponseDTO<NoteDTO> partialUpdate(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId, NoteUpdateDTO noteUpdateDTO);
 
     @DELETE
     @Path("/{noteId}")
+    @PreAuthorize("hasRole('OWNER')")
     ResponseDTO<Boolean> delete(@PathParam("userId") Long userId, @PathParam("noteId") Long noteId);
 
 }

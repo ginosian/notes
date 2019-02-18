@@ -1,7 +1,7 @@
 package com.margin.disqo.security.jwt;
 
-import com.google.common.collect.Lists;
 import com.margin.disqo.auth.AuthenticationFacade;
+import com.margin.disqo.auth.model.AuthenticationResponse;
 import com.margin.disqo.entity.ApiUserDetail;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,18 +32,23 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         } else {
             try {
+                final AuthenticationResponse authentication = getAuthentication(header);
+                final ApiUserDetail userDetail = authentication.getApiUserDetail();
                 SecurityContextHolder.getContext().setAuthentication(
-                        new UsernamePasswordAuthenticationToken(new ApiUserDetail(), "token", Lists.newArrayList()));
+                        new UsernamePasswordAuthenticationToken(userDetail, authentication.getToken(), userDetail.getAuthorities()));
                 chain.doFilter(req, res);
-            } catch (Exception e) {
+            } catch (AuthException e) {
+                SecurityContextHolder.getContext().setAuthentication(null);
+                res.setStatus(401);
+            } catch (IllegalArgumentException e){
                 SecurityContextHolder.getContext().setAuthentication(null);
                 res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             }
         }
     }
 
-    private void getAuthentication(final String header) throws AuthException {
+    private AuthenticationResponse getAuthentication(final String header) throws AuthException {
         final String token = header.replaceAll("Bearer ", "");
-        authenticationFacade.authenticateByApiAccessToken(token);
+        return authenticationFacade.authenticateByApiAccessToken(token);
     }
 }
