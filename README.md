@@ -1,9 +1,20 @@
 # Notes
 
 Notes is an application where you can do CRUD operations on your notes.
+
+## Technology stack
+SpringBoot 2
+SpringDataJPA 2
+SpringSecurity 5
+Hibernate 5
+PostgreSQL 9.6
+
+Glassfish Jersey 2.26
+
+
 ## Installation
 
-Add disqo_notes database with a public schema in your PostgreSQL server.
+Add disqo_notes database with a public schema in your PostgreSQL server, please make sure you have PostgreSQL version 9.6 or below as above SpringDataJPA doesn't support.
 Go to notes-web module
 Find NotesApplication class and run from there or execute the command below
 ```bash
