@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteUpdateDTO {
-    private Long noteId;
     private String title;
     private String note;
 }
