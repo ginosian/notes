@@ -1,8 +1,8 @@
-package com.margin.disqo.service;
+package com.margin.disqo.service.token;
 
 import com.margin.disqo.entity.ApiAuthAccessToken;
-import com.margin.disqo.service.model.ApiAuthAccessTokenCreationRequest;
-import com.margin.disqo.service.model.ApiAuthAccessTokenRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenCreationRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenRequest;
 
 import java.util.Optional;
 

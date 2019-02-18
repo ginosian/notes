@@ -1,11 +1,11 @@
-package com.margin.disqo.service.impl;
+package com.margin.disqo.service.note.impl;
 
 import com.margin.disqo.entity.Note;
 import com.margin.disqo.repository.NoteRepository;
 import com.margin.disqo.repository.UserRepository;
-import com.margin.disqo.service.NoteService;
-import com.margin.disqo.service.component.NoteConverter;
-import com.margin.disqo.service.model.*;
+import com.margin.disqo.service.note.NoteService;
+import com.margin.disqo.service.note.component.NoteConverter;
+import com.margin.disqo.service.note.model.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

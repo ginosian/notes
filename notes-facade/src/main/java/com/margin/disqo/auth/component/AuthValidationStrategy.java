@@ -5,8 +5,8 @@ import com.margin.disqo.entity.ApiAuthAccessToken;
 import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.enums.TokenType;
 import com.margin.disqo.exception.ApiException;
-import com.margin.disqo.service.ApiAuthAccessTokenService;
-import com.margin.disqo.service.model.ApiAuthAccessTokenRequest;
+import com.margin.disqo.service.token.ApiAuthAccessTokenService;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
@@ -30,9 +30,6 @@ public class AuthValidationStrategy {
         hasText(username, "userDetail.username can not be null or empty.");
         hasText(plainPassword, "userDetail.plainPassword can not be null or empty.");
 
-        if(!userDetail.getApproved()){
-            throw new ApiException(String.format("Authentication failed for for user:'%s' as email:'%s' is not verified.", userId, username), 401);
-        }
         if(!PasswordHashHelper.isPasswordCorrect(plainPassword)){
             throw new ApiException(String.format("Password validation failed for user:'%s'.", userId), 401);
         }

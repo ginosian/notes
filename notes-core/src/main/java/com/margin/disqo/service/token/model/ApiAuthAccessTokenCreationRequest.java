@@ -1,4 +1,4 @@
-package com.margin.disqo.service.model;
+package com.margin.disqo.service.token.model;
 
 import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.enums.TokenType;

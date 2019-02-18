@@ -1,4 +1,4 @@
-package com.margin.disqo.service.component;
+package com.margin.disqo.service.token.component;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

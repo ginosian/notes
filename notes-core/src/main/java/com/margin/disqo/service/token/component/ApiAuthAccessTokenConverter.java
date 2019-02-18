@@ -1,7 +1,7 @@
-package com.margin.disqo.service.component;
+package com.margin.disqo.service.token.component;
 
 import com.margin.disqo.entity.ApiAuthAccessToken;
-import com.margin.disqo.service.model.ApiAuthAccessTokenCreationRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenCreationRequest;
 
 import java.time.ZoneId;
 

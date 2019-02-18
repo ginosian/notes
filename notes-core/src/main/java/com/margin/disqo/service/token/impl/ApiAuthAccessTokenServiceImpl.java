@@ -1,14 +1,14 @@
-package com.margin.disqo.service.impl;
+package com.margin.disqo.service.token.impl;
 
 import com.margin.disqo.entity.ApiAuthAccessToken;
 import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.enums.TokenType;
 import com.margin.disqo.repository.ApiAuthAccessTokenRepository;
-import com.margin.disqo.service.ApiAuthAccessTokenService;
-import com.margin.disqo.service.TokenService;
-import com.margin.disqo.service.component.ApiAuthAccessTokenConverter;
-import com.margin.disqo.service.model.ApiAuthAccessTokenCreationRequest;
-import com.margin.disqo.service.model.ApiAuthAccessTokenRequest;
+import com.margin.disqo.service.token.ApiAuthAccessTokenService;
+import com.margin.disqo.service.token.TokenService;
+import com.margin.disqo.service.token.component.ApiAuthAccessTokenConverter;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenCreationRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

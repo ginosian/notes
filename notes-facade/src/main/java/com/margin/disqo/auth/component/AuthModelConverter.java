@@ -2,7 +2,7 @@ package com.margin.disqo.auth.component;
 
 import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.enums.TokenType;
-import com.margin.disqo.service.model.ApiAuthAccessTokenCreationRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenCreationRequest;
 
 import java.util.Date;
 

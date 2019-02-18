@@ -1,4 +1,4 @@
-package com.margin.disqo.service.model;
+package com.margin.disqo.service.note.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteDeleteRequest {
+public class NoteUpdateRequest {
     private Long noteId;
     private Long userId;
+    private String title;
+    private String note;
 }

@@ -1,4 +1,4 @@
-package com.margin.disqo.service.model;
+package com.margin.disqo.service.note.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

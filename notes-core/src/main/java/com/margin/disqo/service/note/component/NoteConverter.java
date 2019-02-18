@@ -1,9 +1,9 @@
-package com.margin.disqo.service.component;
+package com.margin.disqo.service.note.component;
 
 import com.margin.disqo.entity.Note;
-import com.margin.disqo.service.model.NoteCreationRequest;
-import com.margin.disqo.service.model.NoteModel;
-import com.margin.disqo.service.model.NoteUpdateRequest;
+import com.margin.disqo.service.note.model.NoteCreationRequest;
+import com.margin.disqo.service.note.model.NoteModel;
+import com.margin.disqo.service.note.model.NoteUpdateRequest;
 import org.springframework.stereotype.Component;
 
 @Component

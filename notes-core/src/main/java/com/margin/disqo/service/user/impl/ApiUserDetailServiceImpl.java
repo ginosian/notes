@@ -1,9 +1,9 @@
-package com.margin.disqo.service.impl;
+package com.margin.disqo.service.user.impl;
 
 import com.margin.disqo.entity.ApiUser;
 import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.repository.ApiUserDetailRepository;
-import com.margin.disqo.service.ApiUserDetailService;
+import com.margin.disqo.service.user.ApiUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

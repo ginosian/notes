@@ -1,7 +1,7 @@
-package com.margin.disqo.service.impl;
+package com.margin.disqo.service.info.impl;
 
 import com.margin.disqo.dto.info.InfoDTO;
-import com.margin.disqo.service.InfoService;
+import com.margin.disqo.service.info.InfoService;
 import org.springframework.stereotype.Service;
 
 @Service

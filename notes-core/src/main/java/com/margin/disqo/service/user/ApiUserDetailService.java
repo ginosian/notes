@@ -1,4 +1,4 @@
-package com.margin.disqo.service;
+package com.margin.disqo.service.user;
 
 import com.margin.disqo.entity.ApiUser;
 import com.margin.disqo.entity.ApiUserDetail;

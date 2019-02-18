@@ -23,7 +23,6 @@ public class StaticData {
         apiUserDetail.setPassword("password");
         apiUserDetail.setRoles(roles);
         apiUserDetail.setUser(user);
-        apiUserDetail.setApproved(true);
         return apiUserDetail;
     }
 

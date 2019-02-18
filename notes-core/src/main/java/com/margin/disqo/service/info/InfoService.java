@@ -1,4 +1,4 @@
-package com.margin.disqo.service;
+package com.margin.disqo.service.info;
 
 import com.margin.disqo.dto.info.InfoDTO;
 

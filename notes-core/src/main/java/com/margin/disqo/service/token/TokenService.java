@@ -1,6 +1,6 @@
-package com.margin.disqo.service;
+package com.margin.disqo.service.token;
 
-import com.margin.disqo.service.model.ApiAuthAccessTokenCreationRequest;
+import com.margin.disqo.service.token.model.ApiAuthAccessTokenCreationRequest;
 
 public interface TokenService {
 

@@ -1,6 +1,6 @@
-package com.margin.disqo.service;
+package com.margin.disqo.service.note;
 
-import com.margin.disqo.service.model.*;
+import com.margin.disqo.service.note.model.*;
 
 import java.util.List;
 

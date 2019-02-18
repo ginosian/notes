@@ -1,6 +1,6 @@
-package com.margin.disqo.service.impl;
+package com.margin.disqo.service.user.impl;
 
-import com.margin.disqo.service.UserService;
+import com.margin.disqo.service.user.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
