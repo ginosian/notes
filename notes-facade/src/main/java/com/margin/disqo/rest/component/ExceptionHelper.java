@@ -1,4 +1,4 @@
-package com.margin.disqo.rest;
+package com.margin.disqo.rest.component;
 
 import com.margin.disqo.exception.ApiException;
 import org.springframework.stereotype.Component;

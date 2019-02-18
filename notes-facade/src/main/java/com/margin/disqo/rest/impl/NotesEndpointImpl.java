@@ -5,7 +5,7 @@ import com.margin.disqo.dto.*;
 import com.margin.disqo.dto.note.NoteCreationDTO;
 import com.margin.disqo.dto.note.NoteDTO;
 import com.margin.disqo.dto.note.NoteUpdateDTO;
-import com.margin.disqo.rest.ExceptionHelper;
+import com.margin.disqo.rest.component.ExceptionHelper;
 import com.margin.disqo.rest.NotesEndpoint;
 import com.margin.disqo.service.note.NoteService;
 import com.margin.disqo.service.note.model.*;
