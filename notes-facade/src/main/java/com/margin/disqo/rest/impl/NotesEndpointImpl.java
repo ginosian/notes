@@ -34,7 +34,7 @@ public class NotesEndpointImpl implements NotesEndpoint {
     public ResponseDTO<NoteDTO> create(Long userId, NoteCreationDTO noteCreationDTO) {
         validationService.validate(noteCreationDTO);
         final NoteCreationRequest noteCreationRequest = beanMapper.map(noteCreationDTO, NoteCreationRequest.class);
-//        noteCreationRequest.setUserId(userId);
+        noteCreationRequest.setUserId(userId);
         final NoteModel noteModel = noteService.create(noteCreationRequest);
         final NoteDTO response = beanMapper.map(noteModel, NoteDTO.class);
         return new ResponseDTO<>(null, response);
