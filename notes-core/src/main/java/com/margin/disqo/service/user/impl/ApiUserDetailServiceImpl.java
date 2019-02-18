@@ -5,10 +5,11 @@ import com.margin.disqo.entity.ApiUserDetail;
 import com.margin.disqo.repository.ApiUserDetailRepository;
 import com.margin.disqo.service.user.ApiUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-@Service
-public class ApiUserDetailServiceImpl implements ApiUserDetailService {
+@Service(value = "api_user_detail_service")
+public class ApiUserDetailServiceImpl implements ApiUserDetailService, UserDetailsService {
 
     @Autowired
     private ApiUserDetailRepository apiUserDetailRepository;
