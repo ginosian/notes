@@ -47,6 +47,12 @@ public interface NotesEndpoint {
             @QueryParam("page") int page,
             @QueryParam("size") int size);
 
+    @GET
+    @Path("")
+    @PreAuthorize("hasRole('OWNER')")
+    ListResponseDTO<NoteDTO> getAll(
+            @PathParam("userId") Long userId);
+
     @PUT
     @Path("/{noteId}")
     @PreAuthorize("hasRole('OWNER')")
