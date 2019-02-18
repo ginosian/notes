@@ -10,7 +10,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteUpdateDTO {
+public class NoteUpdateDTO implements NoteDeclaration{
     private String title;
     private String note;
+
+    @Override
+    public String getNoteTitle() {
+        return title;
+    }
+
+    @Override
+    public String getNoteText() {
+        return note;
+    }
 }

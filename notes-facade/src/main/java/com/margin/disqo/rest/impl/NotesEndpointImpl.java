@@ -5,14 +5,20 @@ import com.margin.disqo.dto.NoteCreationDTO;
 import com.margin.disqo.dto.NoteDTO;
 import com.margin.disqo.dto.NoteUpdateDTO;
 import com.margin.disqo.rest.NotesEndpoint;
+import com.margin.disqo.validation.ValidationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class NotesEndpointImpl implements NotesEndpoint {
 
+    @Autowired
+    private ValidationService validationService;
+
     @Override
     public ResponseEntity<NoteDTO> create(Long userId, NoteCreationDTO noteCreationDTO) {
+        validationService.validate(noteCreationDTO);
         return null;
     }
 
@@ -28,11 +34,13 @@ public class NotesEndpointImpl implements NotesEndpoint {
 
     @Override
     public ResponseEntity<NoteDTO> update(Long userId, Long noteId, NoteUpdateDTO noteUpdateDTO) {
+        validationService.validate(noteUpdateDTO);
         return null;
     }
 
     @Override
     public ResponseEntity<NoteDTO> partialUpdate(Long userId, Long noteId, NoteUpdateDTO noteUpdateDTO) {
+        validationService.validate(noteUpdateDTO);
         return null;
     }
 
