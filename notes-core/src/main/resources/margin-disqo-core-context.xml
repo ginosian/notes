@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:property-placeholder location="classpath:database.properties" />
+    <context:property-placeholder location="classpath:database.properties" local-override="true"/>
 
     <context:component-scan base-package="com.margin.disqo"/>
     <context:annotation-config/>
@@ -50,6 +50,7 @@
                 <entry key="hibernate.hbm2ddl.auto" value="create"/>
                 <entry key="hibernate.temp.use_jdbc_metadata_defaults" value="${hibernate.temp.use_jdbc_metadata_defaults}"/>
                 <entry key="hibernate.globally_quoted_identifiers" value="true"/>
+                <entry key="hibernate.enable_lazy_load_no_trans" value="true"/>
             </map>
         </property>
     </bean>

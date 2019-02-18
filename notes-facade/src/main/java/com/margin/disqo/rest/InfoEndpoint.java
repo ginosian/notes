@@ -2,11 +2,18 @@ package com.margin.disqo.rest;
 
 import com.margin.disqo.dto.InfoDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping(path = "/info")
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/info")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public interface InfoEndpoint {
-    @GetMapping(path = "")
+    @GET
+    @Path("")
     ResponseEntity<InfoDTO> info();
 }

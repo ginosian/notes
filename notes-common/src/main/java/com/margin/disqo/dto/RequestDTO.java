@@ -5,16 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteDTO {
-    private Long noteId;
-    private String title;
-    private String note;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+public class RequestDTO<T> implements Serializable {
+    private T request;
 }

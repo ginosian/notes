@@ -28,6 +28,8 @@ public class NoteConverter {
         noteModel.setNote(request.getNote());
         noteModel.setTitle(request.getTitle());
         noteModel.setNoteId(request.getId());
+        noteModel.setCreated(request.getCreated());
+        noteModel.setUpdated(request.getUpdated());
         return noteModel;
     }
 }

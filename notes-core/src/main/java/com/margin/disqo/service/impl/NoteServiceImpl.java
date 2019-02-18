@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,6 +30,7 @@ public class NoteServiceImpl implements NoteService {
     @Autowired
     private NoteConverter noteConverter;
 
+    @Transactional
     @Override
     public NoteModel create(final NoteCreationRequest request) {
         notNull(request, "Request can not be null.");
@@ -52,6 +54,7 @@ public class NoteServiceImpl implements NoteService {
         return notes;
     }
 
+    @Transactional
     @Override
     public NoteModel update(final NoteUpdateRequest request) {
         notNull(request, "Request can not be null.");
@@ -59,6 +62,7 @@ public class NoteServiceImpl implements NoteService {
         return noteConverter.convert(noteRepository.save(noteConverter.convert(request)));
     }
 
+    @Transactional
     @Override
     public NoteModel partialUpdate(final NoteUpdateRequest request) {
         notNull(request, "Request can not be null.");
@@ -75,6 +79,7 @@ public class NoteServiceImpl implements NoteService {
         return noteConverter.convert(noteRepository.save(noteConverter.convert(request)));
     }
 
+    @Transactional
     @Override
     public boolean delete(final NoteDeleteRequest request) {
         notNull(request, "Request can not be null.");

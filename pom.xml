@@ -44,6 +44,8 @@
         <guava.collections.version>r03</guava.collections.version>
         <lombok.version>1.18.6</lombok.version>
         <orika.version>1.5.2</orika.version>
+
+        <glassfish.jersey.version>2.27</glassfish.jersey.version>
     </properties>
 
     <dependencies>

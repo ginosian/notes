@@ -16,7 +16,7 @@ public class Note extends AbstractEntity{
     @Column
     private String note;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "user_note_fk"))
-    private ApiUser user;
+//    @OneToOne
+//    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "user_note_fk"))
+//    private ApiUser user;
 }
