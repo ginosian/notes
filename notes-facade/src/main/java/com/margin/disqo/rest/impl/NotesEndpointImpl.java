@@ -78,7 +78,7 @@ public class NotesEndpointImpl implements NotesEndpoint {
 
     @Override
     public ResponseDTO<Boolean> delete(Long userId, Long noteId) {
-        final Boolean response = noteService.delete(new NoteDeleteRequest(userId, noteId));
+        final Boolean response = noteService.delete(new NoteDeleteRequest(noteId, userId));
         return new ResponseDTO<>(null, response);
     }
 }
