@@ -1,6 +1,8 @@
 package com.margin.disqo.service.note.impl;
 
+import com.margin.disqo.entity.ApiUser;
 import com.margin.disqo.entity.Note;
+import com.margin.disqo.exception.ApiException;
 import com.margin.disqo.repository.NoteRepository;
 import com.margin.disqo.repository.UserRepository;
 import com.margin.disqo.service.note.NoteService;
@@ -34,14 +36,17 @@ public class NoteServiceImpl implements NoteService {
     @Override
     public NoteModel create(final NoteCreationRequest request) {
         notNull(request, "Request can not be null.");
-        //TODO Validate content and User Id.
-        return noteConverter.convert(noteRepository.save(noteConverter.convert(request)));
+        final Long userId = request.getUserId();
+        notNull(userId, "UserId can not be null.");
+        final ApiUser apiUser = userRepository.getOne(userId);
+        final Note note = noteConverter.convert(request);
+        note.setUser(apiUser);
+        return noteConverter.convert(noteRepository.save(note));
     }
 
     @Override
     public NoteModel get(final Long id) {
         notNull(id, "ID can not be null.");
-        //TODO Validate content and User Id.
         return noteConverter.convert(noteRepository.getOne(id));
     }
 
@@ -54,20 +59,42 @@ public class NoteServiceImpl implements NoteService {
         return notes;
     }
 
+    @Override
+    public List<NoteModel> getAll() {
+        final List<Note> noteList = noteRepository.findAll();
+        return noteList.stream().map(note -> noteConverter.convert(note)).collect(Collectors.toList());
+    }
+
     @Transactional
     @Override
     public NoteModel update(final NoteUpdateRequest request) {
         notNull(request, "Request can not be null.");
-        //TODO Validate content and User Id.
-        return noteConverter.convert(noteRepository.save(noteConverter.convert(request)));
+        final Long userId = request.getUserId();
+        notNull(userId, "UserId can not be null.");
+        final Long noteId = request.getNoteId();
+        notNull(userId, "NoteId can not be null.");
+        if(!userRepository.existsById(userId)){
+            throw new ApiException(String.format("User doesn't exist:'%s'", userId), 400);
+        }
+        final Note note = noteRepository.getOne(noteId);
+        note.setTitle(request.getTitle());
+        note.setNote(request.getNote());
+
+        return noteConverter.convert(noteRepository.save(note));
     }
 
     @Transactional
     @Override
     public NoteModel partialUpdate(final NoteUpdateRequest request) {
         notNull(request, "Request can not be null.");
-        //TODO Validate content and User Id.
-        final Note note = noteRepository.getOne(request.getNoteId());
+        final Long userId = request.getUserId();
+        notNull(userId, "UserId can not be null.");
+        final Long noteId = request.getNoteId();
+        notNull(userId, "NoteId can not be null.");
+        if(!userRepository.existsById(userId)){
+            throw new ApiException(String.format("User doesn't exist:'%s'", userId), 400);
+        }
+        final Note note = noteRepository.getOne(noteId);
         final String title = request.getTitle();
         final String noteText = request.getNote();
         if(StringUtils.isNotEmpty(title)){
@@ -76,15 +103,21 @@ public class NoteServiceImpl implements NoteService {
         if(StringUtils.isNotEmpty(noteText)){
             note.setNote(noteText);
         }
-        return noteConverter.convert(noteRepository.save(noteConverter.convert(request)));
+        return noteConverter.convert(noteRepository.save(note));
     }
 
     @Transactional
     @Override
     public boolean delete(final NoteDeleteRequest request) {
         notNull(request, "Request can not be null.");
-        //TODO Validate content and User Id.
-        final Note note = noteRepository.getOne(request.getNoteId());
+        final Long userId = request.getUserId();
+        notNull(userId, "UserId can not be null.");
+        final Long noteId = request.getNoteId();
+        notNull(userId, "NoteId can not be null.");
+        if(!userRepository.existsById(userId)){
+            throw new ApiException(String.format("User doesn't exist:'%s'", userId), 400);
+        }
+        final Note note = noteRepository.getOne(noteId);
         noteRepository.delete(note);
         return true;
     }
