@@ -43,4 +43,4 @@ You can make requests using
 ```
 
 ## Swagger UI
-http://localhost:8082/api/v1/swagger-ui.html
+[SWAGGER](http://localhost:8082/swagger-ui.html)
